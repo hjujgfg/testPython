@@ -1,3 +1,4 @@
+
 class Creative(object):
 	"""Model of a creative item"""
 	def __init__(self, ID, advertizer_id, cost, country=None):
@@ -9,5 +10,6 @@ class Creative(object):
 		    self.country = country
 
 	def __str__(self):
-		return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id)
+		return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id) \
 		 + " cost: " + str(self.cost) + str(self.country)
+	def comapre(self, another):
