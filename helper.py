@@ -7,7 +7,7 @@ def buildForAdvertizer(creatives_number, advertizer_id, country = None):
 		for i in range(0, creatives_number):
 			result.append(creative.Creative(i, advertizer_id, random.randint(0, 100), country))
 		return result
-#build a list of creatives with given length, but with random number of advertizers and number of cratives for an advertizer
+#build a list of creatives with given length, but with random number of advertizers and also random number of cratives for an advertizer
 def buildRandom(creatives_number):
 	result = []
 	adv_num = random.randint(1, creatives_number/10)
