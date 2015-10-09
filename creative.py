@@ -12,4 +12,7 @@ class Creative(object):
 	def __str__(self):
 		return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id) \
 		 + " cost: " + str(self.cost) + str(self.country)
+ 	def __repr__(self):
+ 		return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id) \
+		 + " cost: " + str(self.cost) + str(self.country)
 	#def comapre(self, another):
