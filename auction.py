@@ -2,14 +2,13 @@ import creative
 import random
 class Auction(object):
 	"""This is a class for auction proccess"""
-	def __init__(self, arg):
+	def __init__(self):
 		super(Auction, self).__init__()
-		self.arg = arg
 
 	def perform (self, creatives, num_winners, country=None):
 		cr = sorted(creatives, key=lambda c: c.cost, reverse=True)
 		filtered = []
-		#filter by country and take only one the most valuable creative from each advertizer
+		#filter by country and take only one most valuable creative from each advertizer as we have to return items with unique advertizer id
 		advertizers = set() 
 		for c in cr: 
 			if hasattr(c, 'country') and country is not None and c.country==country or not hasattr(c, 'country'):
@@ -20,7 +19,7 @@ class Auction(object):
 			return filtered
 		slots = num_winners
 		result = []
-		#we go through filtered values and append creatives with the highest cost or take random from clusters with same cost yo or add the whole cluster 
+		#we go through filtered values and append creatives with the highest cost or take random from clusters with same cost or add the whole cluster 
 		for i in range(0, len(filtered)):
 			if slots == 0:
 				break
@@ -43,5 +42,5 @@ class Auction(object):
 						result.append(cluster[randIndex])
 						#actually it is not necessary but for consistency... 
 						slots -= 1 
-						#is it honest to decrease set size? we'll findout in tests  
+						#is it honest to decrease set size? we'll find out in tests  
 						cluster.remove(cluster[randIndex])

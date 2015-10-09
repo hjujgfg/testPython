@@ -1,4 +1,5 @@
 {"countries":[ 
+  {"name": "not_specified", "code": "empty"},
   {"name": "Afghanistan", "code": "AF"}, 
   {"name": "Aland Islands", "code": "AX"}, 
   {"name": "Albania", "code": "AL"}, 
