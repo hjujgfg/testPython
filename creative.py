@@ -8,6 +8,10 @@ class Creative(object):
 		self.cost = cost
 		if country is not None:
 		    self.country = country
- 	def __repr__(self):
- 		return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id) \
-		 + " cost: " + str(self.cost) + str(self.country)
+	def __repr__(self):
+		if not hasattr(self, 'country'):
+			return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id) \
+				+ " cost: " + str(self.cost) + " any country"
+		else:
+			return "ID: " + str(self.ID) + " adv_id: " + str(self.advertizer_id) \
+				+ " cost: " + str(self.cost) + " country: " + self.country

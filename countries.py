@@ -1,7 +1,7 @@
-"""Module loads countries from json file with specific structure"""
+"""Module loads countries from json file with specific structure and returns list of Cou"""
 import json
 from pprint import pprint
-def loadCountries(fname):
+def loadCountries(fname="countriesTest.json"):
 	"""yolo"""
 	with open(fname) as fileS:
 		data = json.load(fileS)
@@ -17,14 +17,14 @@ def convert(dictCountry):
 
 def byteify(input):
 	"""This is a code from stackoverflow, which converts my unicode strings from file"""
-    if isinstance(input, dict):
-        return {byteify(key):byteify(value) for key,value in input.iteritems()}
-    elif isinstance(input, list):
-        return [byteify(element) for element in input]
-    elif isinstance(input, unicode):
-        return input.encode('utf-8')
-    else:
-        return input
+	if isinstance(input, dict):
+		return {byteify(key):byteify(value) for key,value in input.iteritems()}
+	elif isinstance(input, list):
+		return [byteify(element) for element in input]
+	elif isinstance(input, unicode):
+		return input.encode('utf-8')
+	else:
+		return input
 class Country(object):
 	"""We will handle countries as objects"""
 	def __init__(self, name, code):
