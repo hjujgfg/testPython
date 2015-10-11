@@ -13,8 +13,9 @@ def prepareCreatives():
 
 class testAuction(unittest.TestCase): 
 	def test_simple(self):
+		print "TEST test_simple init___________________________"
 		global cList
-		helper.printList(cList)
+		#helper.printList(cList)
 		cr = [] 
 		cr.append(creative.Creative(1, "adv1", 100))
 		cr.append(creative.Creative(2, "adv1", 200, "country"))
@@ -35,23 +36,35 @@ class testAuction(unittest.TestCase):
 		for i in correct_ids:
 			self.assertEqual(res[x].ID, i)
 			x += 1
+		print "TEST test_simple end___________________________"
 	def test_uniqueAdvertizer(self):
 		pass
 
 	def test_distribution100(self):
-		creatives = helper.buildRandom(100)
+		print "TEST test_distribution100 init___________________________"
+		creatives = helper.buildRandom(300)
 		print "test 3 creatives list!"
-		helper.printList(creatives)
+		#helper.printList(creatives)
 		a = auction.Auction()
 		dict = {}
-		for i in range(100):
+		winners = set()
+		for i in range(0, 10):
 			#print "iteration: " + str(i)
-			res = a.perform(creatives, 10, "AS")
+			res = a.perform(creatives, 6, "AS")
+			print "res #" + str(i)
 			print res
+			print "--------------------------------------------------"
 			for c in res: 
 				#dict [str(c)] += 1
-				dict[str(c.ID)+str(c.advertizer_id)]
+				if str(c.ID)+"adv"+str(c.advertizer_id) in winners:
+					dict[str(c.ID)+"adv"+str(c.advertizer_id)] += 1
+				else:
+					winners.add(str(c.ID)+"adv"+str(c.advertizer_id))
+					dict[str(c.ID)+"adv"+str(c.advertizer_id)] = 0
 			#print dict
+		print "__________________________________DICTS_____________________________________"
+		print dict
+		print "TEST test_distribution100 end___________________________"
 
 if __name__ == '__main__':
 	prepareCreatives()

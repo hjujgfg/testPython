@@ -18,7 +18,7 @@ def buildForAdvertizer(creatives_number, advertizer_id, country = None):
 def buildRandom(creatives_number, country=None):
 	"""build a list of creatives with given length, but with random number of advertizers and also random number of cratives for an advertizer"""
 	result = []
-	adv_num = random.randint(1, creatives_number/10)
+	adv_num = random.randint(1, creatives_number / 2)
 	counter = creatives_number
 	slots = creatives_number
 	global countriesList
